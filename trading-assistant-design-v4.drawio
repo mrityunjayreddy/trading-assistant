@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1200" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2100" pageHeight="4200" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+
+    <!-- ═══════════════════════════════════════════════════════
+         PARTICIPANT HEADER BOXES — TOP ROW
+         10 participants: Frontend, trading-assistant, market-data-service,
+         trading-engine, strategy-service, ai-service,
+         Kafka (kline), Kafka (signals), PostgreSQL, Redis, Anthropic
+    ═══════════════════════════════════════════════════════════ -->
+
+    <mxCell id="p01t" value="React Frontend" style="rounded=1;arcSize=8;fillColor=#1a1a2e;strokeColor=#aaaaaa;fontColor=#ffffff;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="30" y="40" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p02t" value="trading-assistant&#xa;:8080" style="rounded=1;arcSize=8;fillColor=#1a1a2e;strokeColor=#aaaaaa;fontColor=#ffffff;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="200" y="40" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p03t" value="market-data-service" style="rounded=1;arcSize=8;fillColor=#2d1a0e;strokeColor=#d6b656;fontColor=#ffd580;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="370" y="40" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p04t" value="trading-engine&#xa;:8081" style="rounded=1;arcSize=8;fillColor=#1a1a2e;strokeColor=#aaaaaa;fontColor=#ffffff;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="540" y="40" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p05t" value="strategy-service&#xa;:8082" style="rounded=1;arcSize=8;fillColor=#1a1a2e;strokeColor=#aaaaaa;fontColor=#ffffff;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="710" y="40" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p06t" value="ai-service&#xa;:8083" style="rounded=1;arcSize=8;fillColor=#1a1a2e;strokeColor=#aaaaaa;fontColor=#ffffff;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="880" y="40" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p07t" value="Kafka&#xa;market.kline.*" style="rounded=1;arcSize=8;fillColor=#2d2200;strokeColor=#d6b656;fontColor=#ffd580;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="1050" y="40" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p08t" value="Kafka&#xa;trading.signals" style="rounded=1;arcSize=8;fillColor=#1a2200;strokeColor=#88cc44;fontColor=#aaff55;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="1220" y="40" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p09t" value="PostgreSQL&#xa;+ pgvector" style="rounded=1;arcSize=8;fillColor=#0e2d0e;strokeColor=#82b366;fontColor=#88ff88;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="1390" y="40" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p10t" value="Redis" style="rounded=1;arcSize=8;fillColor=#2d0e0e;strokeColor=#cc4444;fontColor=#ff9999;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="1560" y="40" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p11t" value="Anthropic API" style="rounded=1;arcSize=8;fillColor=#1e0a2e;strokeColor=#9673a6;fontColor=#cc99ff;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="1730" y="40" width="140" height="54" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════
+         LIFELINES
+    ═══════════════════════════════════════════════════════════ -->
+    <mxCell id="ll01" value="" style="endArrow=none;strokeColor=#444455;strokeWidth=1;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="100" y="94" as="sourcePoint"/><mxPoint x="100" y="4100" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="ll02" value="" style="endArrow=none;strokeColor=#444455;strokeWidth=1;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="270" y="94" as="sourcePoint"/><mxPoint x="270" y="4100" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="ll03" value="" style="endArrow=none;strokeColor=#996600;strokeWidth=1;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="440" y="94" as="sourcePoint"/><mxPoint x="440" y="4100" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="ll04" value="" style="endArrow=none;strokeColor=#444455;strokeWidth=1;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="610" y="94" as="sourcePoint"/><mxPoint x="610" y="4100" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="ll05" value="" style="endArrow=none;strokeColor=#444455;strokeWidth=1;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="780" y="94" as="sourcePoint"/><mxPoint x="780" y="4100" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="ll06" value="" style="endArrow=none;strokeColor=#444455;strokeWidth=1;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="94" as="sourcePoint"/><mxPoint x="950" y="4100" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="ll07" value="" style="endArrow=none;strokeColor=#996600;strokeWidth=1;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1120" y="94" as="sourcePoint"/><mxPoint x="1120" y="4100" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="ll08" value="" style="endArrow=none;strokeColor=#558822;strokeWidth=1;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1290" y="94" as="sourcePoint"/><mxPoint x="1290" y="4100" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="ll09" value="" style="endArrow=none;strokeColor=#336633;strokeWidth=1;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1460" y="94" as="sourcePoint"/><mxPoint x="1460" y="4100" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="ll10" value="" style="endArrow=none;strokeColor=#882222;strokeWidth=1;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1630" y="94" as="sourcePoint"/><mxPoint x="1630" y="4100" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="ll11" value="" style="endArrow=none;strokeColor=#553377;strokeWidth=1;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1800" y="94" as="sourcePoint"/><mxPoint x="1800" y="4100" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 1 — LIVE DATA INGEST + KAFKA PRODUCE
+    ═══════════════════════════════════════════════════════════ -->
+    <mxCell id="s1hdr" value="" style="rounded=0;fillColor=#1a2a00;strokeColor=#556600;opacity=70;" vertex="1" parent="1">
+      <mxGeometry x="30" y="120" width="1940" height="26" as="geometry"/>
+    </mxCell>
+    <mxCell id="s1lbl" value="SECTION 1 — LIVE MARKET DATA INGEST  (two independent WebSocket connections → Kafka)" style="text;fontSize=11;fontStyle=1;fontColor=#aadd44;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="42" y="124" width="700" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- trading-assistant: Binance WS note -->
+    <mxCell id="s1n1" value="Connect to Binance Futures WS&#xa;wss://fstream.binance.com&#xa;Buffer in FIFO deque (500/symbol)" style="rounded=1;arcSize=10;fillColor=#1e2a00;strokeColor=#556600;fontColor=#aabb88;fontSize=10;whiteSpace=wrap;align=left;spacingLeft=6;" vertex="1" parent="1">
+      <mxGeometry x="175" y="158" width="220" height="48" as="geometry"/>
+    </mxCell>
+
+    <!-- market-data-service: Binance WS note -->
+    <mxCell id="s1n2" value="Connect to Binance fstream WS&#xa;wss://fstream.binance.com/ws&#xa;Exp backoff reconnect · max 30s" style="rounded=1;arcSize=10;fillColor=#2d1a00;strokeColor=#d6b656;fontColor=#ffd580;fontSize=10;whiteSpace=wrap;align=left;spacingLeft=6;" vertex="1" parent="1">
+      <mxGeometry x="355" y="158" width="220" height="48" as="geometry"/>
+    </mxCell>
+
+    <!-- trading-assistant → SSE → Frontend -->
+    <mxCell id="s1m1" value="SSE live candles /api/market-stream (heartbeat 15s)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="270" y="218" as="sourcePoint"/><mxPoint x="100" y="218" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- trading-assistant → Kafka kline (closed candles) -->
+    <mxCell id="s1m2" value="isClosed=true → ClosedCandleKafkaPublisher → market.kline.{interval}" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="270" y="248" as="sourcePoint"/><mxPoint x="1120" y="248" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- trading-assistant → PostgreSQL (async persist) -->
+    <mxCell id="s1m3" value="ClosedCandleDbPersister (async) → INSERT market_data ON CONFLICT DO NOTHING" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="270" y="275" as="sourcePoint"/><mxPoint x="1460" y="275" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- market-data-service: normalize kline -->
+    <mxCell id="s1m4" value="KlineHandler: normalize → KlineEvent  (isClosed=true only)" style="text;fontSize=10;fontColor=#ffd580;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="465" y="300" width="380" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- market-data-service → Kafka kline -->
+    <mxCell id="s1m5" value="market.kline.1m / 5m / 15m / 1h  (idempotent, LZ4, acks=all)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;strokeWidth=2.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="440" y="320" as="sourcePoint"/><mxPoint x="1120" y="320" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- market-data-service → Kafka trades -->
+    <mxCell id="s1m6" value="TradeNormalizer → market.trades" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="440" y="348" as="sourcePoint"/><mxPoint x="1120" y="348" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 2 — KAFKA CONSUMERS (THE MISSING PIECE)
+    ═══════════════════════════════════════════════════════════ -->
+    <mxCell id="s2hdr" value="" style="rounded=0;fillColor=#002200;strokeColor=#228822;opacity=70;" vertex="1" parent="1">
+      <mxGeometry x="30" y="380" width="1940" height="26" as="geometry"/>
+    </mxCell>
+    <mxCell id="s2lbl" value="SECTION 2 — KAFKA CONSUMERS  ★ NEW ★  (previously missing — three consumer groups added)" style="text;fontSize=11;fontStyle=1;fontColor=#55ff55;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="42" y="384" width="800" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- CONSUMER 1: KlinePersistenceConsumer (existed) -->
+    <mxCell id="s2c1hdr" value="Consumer 1 — KlinePersistenceConsumer  (group: kline-persister)  — existed" style="text;fontSize=10;fontStyle=1;fontColor=#aaaaaa;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="42" y="415" width="600" height="16" as="geometry"/>
+    </mxCell>
+    <mxCell id="s2m1" value="market.kline.* → KlinePersistenceConsumer reads closed candles" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d6b656;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1120" y="435" as="sourcePoint"/><mxPoint x="440" y="435" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s2m2" value="Batch INSERT market_data (50 records or 10s) ON CONFLICT DO NOTHING" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="440" y="458" as="sourcePoint"/><mxPoint x="1460" y="458" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- CONSUMER 2: LiveSignalConsumer (NEW) -->
+    <mxCell id="s2c2hdr" value="Consumer 2 — LiveSignalConsumer  (group: live-signal-evaluator)  ★ NEW ★" style="text;fontSize=10;fontStyle=1;fontColor=#55ff55;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="42" y="480" width="600" height="16" as="geometry"/>
+    </mxCell>
+    <!-- Kafka kline → trading-engine LiveSignalConsumer -->
+    <mxCell id="s2m3" value="market.kline.* → LiveSignalConsumer (trading-engine) reads every closed candle" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#88cc44;strokeWidth=2;fontSize=10;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1120" y="500" as="sourcePoint"/><mxPoint x="610" y="500" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- trading-engine self: evaluate all active strategies -->
+    <mxCell id="s2arc1" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#88cc44;strokeWidth=1.5;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitFixed=0;entryX=1;entryY=0.5;entryFixed=0;curved=1;" edge="1" source="p04t" target="p04t" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="690" y="522" as="sourcePoint"/><mxPoint x="690" y="545" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s2n1" value="Load active strategies from Redis cache (refresh every 5m from strategy-service)&#xa;Run StrategyEngine.evaluate(dsl, barSeries, barIndex) for each strategy&#xa;→ Emit Signal { strategyId, type: ENTRY/EXIT/NONE, price, reason }" style="text;fontSize=10;fontColor=#88cc44;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="705" y="516" width="500" height="46" as="geometry"/>
+    </mxCell>
+
+    <!-- trading-engine → strategy-service: fetch active strategies (initial + refresh) -->
+    <mxCell id="s2m4" value="GET /api/strategies?activeOnly=true  (on startup + every 5min)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#88cc44;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="610" y="568" as="sourcePoint"/><mxPoint x="780" y="568" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s2m5" value="List&lt;StrategyRecord&gt;" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#88cc44;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="780" y="590" as="sourcePoint"/><mxPoint x="610" y="590" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- trading-engine → Kafka signals: publish ENTRY/EXIT -->
+    <mxCell id="s2m6" value="Publish Signal to trading.signals  (key: strategyId:symbol, only ENTRY or EXIT — skip NONE)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#88cc44;strokeWidth=2.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="610" y="615" as="sourcePoint"/><mxPoint x="1290" y="615" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- CONSUMER 3: SignalConsumer (NEW) -->
+    <mxCell id="s2c3hdr" value="Consumer 3 — SignalConsumer  (group: signal-portfolio-updater)  ★ NEW ★" style="text;fontSize=10;fontStyle=1;fontColor=#55ff55;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="42" y="638" width="600" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- trading.signals → trading-assistant (SSE push to frontend) -->
+    <mxCell id="s2m7" value="trading.signals → SignalConsumer (trading-assistant, group: signal-sse-pusher)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#88cc44;strokeWidth=2;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1290" y="658" as="sourcePoint"/><mxPoint x="270" y="658" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- trading-assistant: update virtual portfolio in Redis -->
+    <mxCell id="s2m8" value="ENTRY signal → open virtual position in Redis  (strategyId, entryPrice, entryTime)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#cc4444;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="270" y="685" as="sourcePoint"/><mxPoint x="1630" y="685" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s2m9" value="EXIT signal → close position, compute PnL, update leaderboard sorted set" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#cc4444;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="270" y="710" as="sourcePoint"/><mxPoint x="1630" y="710" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- trading-assistant → frontend: SSE push signal event -->
+    <mxCell id="s2m10" value="SSE push: SignalEvent { strategyName, type, price, symbol } → frontend dashboard" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="270" y="738" as="sourcePoint"/><mxPoint x="100" y="738" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- CONSUMER 4: MarketContextConsumer (NEW) -->
+    <mxCell id="s2c4hdr" value="Consumer 4 — MarketContextConsumer  (group: market-context-updater)  ★ NEW ★" style="text;fontSize=10;fontStyle=1;fontColor=#55ff55;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="42" y="760" width="620" height="16" as="geometry"/>
+    </mxCell>
+    <mxCell id="s2m11" value="market.kline.1h → MarketContextConsumer (ai-service)  reads every closed 1h candle" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#88cc44;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1120" y="780" as="sourcePoint"/><mxPoint x="950" y="780" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- ai-service self: compute market context -->
+    <mxCell id="s2arc2" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#88cc44;strokeWidth=1.5;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitFixed=0;entryX=1;entryY=0.5;entryFixed=0;curved=1;" edge="1" source="p06t" target="p06t" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1030" y="800" as="sourcePoint"/><mxPoint x="1030" y="822" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s2n2" value="Recompute trend (EMA slope), volatility (ATR%), session (UTC hour)" style="text;fontSize=10;fontColor=#88cc44;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="1045" y="798" width="440" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- ai-service → Redis: store market context -->
+    <mxCell id="s2m12" value="SET market:context:{symbol} { trend, volatility, session }  TTL=90m" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#cc4444;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="828" as="sourcePoint"/><mxPoint x="1630" y="828" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 3 — BACKTEST REQUEST FLOW
+    ═══════════════════════════════════════════════════════════ -->
+    <mxCell id="s3hdr" value="" style="rounded=0;fillColor=#00102a;strokeColor=#224466;opacity=70;" vertex="1" parent="1">
+      <mxGeometry x="30" y="868" width="1940" height="26" as="geometry"/>
+    </mxCell>
+    <mxCell id="s3lbl" value="SECTION 3 — BACKTEST REQUEST FLOW  (frontend → gateway → trading-engine)" style="text;fontSize=11;fontStyle=1;fontColor=#66aaff;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="42" y="872" width="600" height="16" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s3m1" value="POST /api/simulate/dsl  { strategyDsl, symbol, interval, fromDate, toDate }" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="100" y="910" as="sourcePoint"/><mxPoint x="270" y="910" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s3m2" value="proxy → trading-engine POST /api/simulate/dsl" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="270" y="938" as="sourcePoint"/><mxPoint x="610" y="938" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s3m3" value="SELECT market_data (BarSeriesLoader — first 80% of date range)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="610" y="965" as="sourcePoint"/><mxPoint x="1460" y="965" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s3m4" value="BaseBarSeries rows" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1460" y="990" as="sourcePoint"/><mxPoint x="610" y="990" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <mxCell id="s3arc1" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#888888;strokeWidth=1.5;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitFixed=0;entryX=1;entryY=0.5;entryFixed=0;curved=1;" edge="1" source="p04t" target="p04t" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="690" y="1012" as="sourcePoint"/><mxPoint x="690" y="1035" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s3n1" value="DslStrategyAdapter → TA4J sim · Portfolio state machine · StatisticalValidityEnricher (min 50 trades)" style="text;fontSize=10;fontColor=#aaaaaa;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="705" y="1010" width="560" height="16" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s3m5" value="BacktestResultPersister → INSERT backtest_results (R2DBC)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="610" y="1052" as="sourcePoint"/><mxPoint x="1460" y="1052" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s3m6" value="SimulationResult { trades, equityCurve, sharpe, winRate, maxDrawdown, isStatisticallyValid }" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="610" y="1078" as="sourcePoint"/><mxPoint x="100" y="1078" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 4 — STRATEGY REGISTER + VALIDATE
+    ═══════════════════════════════════════════════════════════ -->
+    <mxCell id="s4hdr" value="" style="rounded=0;fillColor=#1a001a;strokeColor=#663366;opacity=70;" vertex="1" parent="1">
+      <mxGeometry x="30" y="1112" width="1940" height="26" as="geometry"/>
+    </mxCell>
+    <mxCell id="s4lbl" value="SECTION 4 — STRATEGY REGISTER + VALIDATE  (user submits custom strategy)" style="text;fontSize=11;fontStyle=1;fontColor=#cc88cc;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="42" y="1116" width="600" height="16" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s4m1" value="POST /api/strategies  { strategyDsl, source: USER }" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="100" y="1152" as="sourcePoint"/><mxPoint x="270" y="1152" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s4m2" value="proxy → strategy-service POST /api/strategies" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="270" y="1180" as="sourcePoint"/><mxPoint x="780" y="1180" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <mxCell id="s4arc1" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=1.5;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitFixed=0;entryX=1;entryY=0.5;entryFixed=0;curved=1;" edge="1" source="p05t" target="p05t" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="860" y="1202" as="sourcePoint"/><mxPoint x="860" y="1224" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s4n1" value="StrategyValidator: schema · risk bounds · indicator whitelist · DSL dry-run · Levenshtein diversity" style="text;fontSize=10;fontColor=#cc99ff;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="878" y="1200" width="560" height="16" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s4m3" value="DSL dry-run → POST /api/simulate/dsl (10s timeout)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="780" y="1242" as="sourcePoint"/><mxPoint x="610" y="1242" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s4m4" value="200 OK or 400" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="610" y="1265" as="sourcePoint"/><mxPoint x="780" y="1265" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- alt block -->
+    <mxCell id="alt1" value="" style="rounded=0;fillColor=none;strokeColor=#666666;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+      <mxGeometry x="50" y="1285" width="1920" height="90" as="geometry"/>
+    </mxCell>
+    <mxCell id="alt1lbl" value="alt" style="rounded=1;arcSize=50;fillColor=#333333;strokeColor=#888888;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="50" y="1285" width="34" height="18" as="geometry"/>
+    </mxCell>
+    <mxCell id="alt1ok" value="[Valid]  INSERT strategies (source=USER, isActive=true)" style="text;fontSize=10;fontColor=#88ff88;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="68" y="1305" width="480" height="16" as="geometry"/>
+    </mxCell>
+    <mxCell id="s4m5" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="780" y="1318" as="sourcePoint"/><mxPoint x="1460" y="1318" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <!-- ★ NEW: invalidate Redis strategy cache after insert -->
+    <mxCell id="s4m5b" value="★ Invalidate Redis strategy cache (LiveSignalConsumer will refresh on next poll)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#cc4444;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="780" y="1342" as="sourcePoint"/><mxPoint x="1630" y="1342" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="alt1div" value="" style="line;strokeColor=#555555;" vertex="1" parent="1">
+      <mxGeometry x="50" y="1358" width="1920" height="8" as="geometry"/>
+    </mxCell>
+    <mxCell id="alt1fail" value="[Invalid]  400 { errors: [reason] }" style="text;fontSize=10;fontColor=#ff8888;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="68" y="1368" width="480" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 5 — BATCH BACKTEST (SCHEDULED)
+    ═══════════════════════════════════════════════════════════ -->
+    <mxCell id="s5hdr" value="" style="rounded=0;fillColor=#001a00;strokeColor=#225522;opacity=70;" vertex="1" parent="1">
+      <mxGeometry x="30" y="1398" width="1940" height="26" as="geometry"/>
+    </mxCell>
+    <mxCell id="s5lbl" value="SECTION 5 — BATCH BACKTEST  (every 6 hours · BatchBacktestOrchestrator)" style="text;fontSize=11;fontStyle=1;fontColor=#88cc88;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="42" y="1402" width="600" height="16" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s5arc1" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=1.5;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitFixed=0;entryX=1;entryY=0.5;entryFixed=0;curved=1;" edge="1" source="p05t" target="p05t" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="860" y="1438" as="sourcePoint"/><mxPoint x="860" y="1460" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s5n1" value="Load all active strategies · Semaphore(5) · skip if backtested &lt;6h ago" style="text;fontSize=10;fontColor=#aaaaaa;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="878" y="1436" width="460" height="16" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s5m1" value="POST /api/simulate/dsl  (BTCUSDT 1h, last 365d)  [virtual thread per strategy, cap=5]" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="780" y="1475" as="sourcePoint"/><mxPoint x="610" y="1475" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s5m2" value="SimulationResult" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="610" y="1500" as="sourcePoint"/><mxPoint x="780" y="1500" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s5m3" value="[isStatisticallyValid=true]  INSERT backtest_results" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="780" y="1525" as="sourcePoint"/><mxPoint x="1460" y="1525" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <!-- ★ NEW: update Redis leaderboard after batch -->
+    <mxCell id="s5m4" value="★ Update Redis leaderboard sorted set (score=sharpe) after each valid result" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#cc4444;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="780" y="1550" as="sourcePoint"/><mxPoint x="1630" y="1550" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 6 — AI MEMORY WRITE
+    ═══════════════════════════════════════════════════════════ -->
+    <mxCell id="s6hdr" value="" style="rounded=0;fillColor=#2a0000;strokeColor=#993333;opacity=70;" vertex="1" parent="1">
+      <mxGeometry x="30" y="1588" width="1940" height="26" as="geometry"/>
+    </mxCell>
+    <mxCell id="s6lbl" value="SECTION 6 — AI MEMORY WRITE  (quality-gated · StrategyMemoryWriter)" style="text;fontSize=11;fontStyle=1;fontColor=#ff9999;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="42" y="1592" width="600" height="16" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s6m1" value="SELECT backtest_results WHERE not yet in strategy_memory" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="1628" as="sourcePoint"/><mxPoint x="1460" y="1628" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s6m2" value="rows" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1460" y="1652" as="sourcePoint"/><mxPoint x="950" y="1652" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- quality gate alt block -->
+    <mxCell id="alt2" value="" style="rounded=0;fillColor=none;strokeColor=#666666;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+      <mxGeometry x="50" y="1672" width="1920" height="148" as="geometry"/>
+    </mxCell>
+    <mxCell id="alt2lbl" value="alt" style="rounded=1;arcSize=50;fillColor=#333333;strokeColor=#888888;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="50" y="1672" width="34" height="18" as="geometry"/>
+    </mxCell>
+    <mxCell id="alt2ok" value="[All 5 gates pass: isValid + DD&lt;30% + trades≥50 + coverage≥120d + sharpe&gt;-1.0]" style="text;fontSize=10;fontColor=#88ff88;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="68" y="1692" width="640" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- ★ NEW: read market context from Redis instead of DB -->
+    <mxCell id="s6m2b" value="★ GET market:context:{symbol} from Redis (real-time, set by MarketContextConsumer)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#cc4444;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="1712" as="sourcePoint"/><mxPoint x="1630" y="1712" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <mxCell id="s6arc1" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=1.5;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitFixed=0;entryX=1;entryY=0.5;entryFixed=0;curved=1;" edge="1" source="p06t" target="p06t" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1030" y="1732" as="sourcePoint"/><mxPoint x="1030" y="1752" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s6n1" value="Build memory doc + FeatureVectorBuilder (1536-dim)" style="text;fontSize=10;fontColor=#ffaaaa;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="1045" y="1730" width="400" height="16" as="geometry"/>
+    </mxCell>
+
+    <mxCell id="s6m3" value="Generate LESSON (claude-haiku · max 40 tokens · cache by strategyId+verdict)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="1758" as="sourcePoint"/><mxPoint x="1800" y="1758" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s6m4" value="lesson string" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1800" y="1782" as="sourcePoint"/><mxPoint x="950" y="1782" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s6m5" value="INSERT strategy_memory { document, embedding vector(1536), verdict, lesson }" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="1805" as="sourcePoint"/><mxPoint x="1460" y="1805" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="alt2div" value="" style="line;strokeColor=#555555;" vertex="1" parent="1">
+      <mxGeometry x="50" y="1815" width="1920" height="8" as="geometry"/>
+    </mxCell>
+    <mxCell id="alt2fail" value="[Any gate fails]  log rejected gate + values — discard" style="text;fontSize=10;fontColor=#ff8888;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="68" y="1825" width="480" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 7 — AI LEARNING LOOP (02:00 UTC)
+    ═══════════════════════════════════════════════════════════ -->
+    <mxCell id="s7hdr" value="" style="rounded=0;fillColor=#001022;strokeColor=#224488;opacity=70;" vertex="1" parent="1">
+      <mxGeometry x="30" y="1862" width="1940" height="26" as="geometry"/>
+    </mxCell>
+    <mxCell id="s7lbl" value="SECTION 7 — AI LEARNING LOOP  (daily 02:00 UTC · LearningLoopOrchestrator · 8 steps)" style="text;fontSize=11;fontStyle=1;fontColor=#66aaff;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="42" y="1866" width="680" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- step 3: analyze -->
+    <mxCell id="s7arc1" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=1.5;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitFixed=0;entryX=1;entryY=0.5;entryFixed=0;curved=1;" edge="1" source="p06t" target="p06t" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1030" y="1900" as="sourcePoint"/><mxPoint x="1030" y="1922" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s7n1" value="Step 3: Analyze — best/worst/avgSharpe/dominantExitReason" style="text;fontSize=10;fontColor=#aaaaff;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="1045" y="1898" width="480" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- ★ NEW: read market context from Redis (real-time) -->
+    <mxCell id="s7m0" value="★ GET market:context:BTCUSDT from Redis (real-time, updated by MarketContextConsumer)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#cc4444;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="1935" as="sourcePoint"/><mxPoint x="1630" y="1935" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- step 4: retrieve memories -->
+    <mxCell id="s7m1" value="Step 4: pgvector cosine search → re-rank (0.35·sim + 0.45·sharpe + 0.20·DD) → top 5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="1962" as="sourcePoint"/><mxPoint x="1460" y="1962" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s7m2" value="top 5 MemoryRecord" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1460" y="1988" as="sourcePoint"/><mxPoint x="950" y="1988" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- step 4: generate 3 strategies -->
+    <mxCell id="s7m3" value="Step 4: Generate 3 strategies — improve best · fit regime · contrarian  [5s sleep between each]" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth:2;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="2015" as="sourcePoint"/><mxPoint x="1800" y="2015" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s7m4" value="3x StrategyDSL JSON  (claude-sonnet-4, max_tokens=1024)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1800" y="2042" as="sourcePoint"/><mxPoint x="950" y="2042" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- step 5: validate -->
+    <mxCell id="s7m5" value="Step 5: POST /api/strategies?dryRun=true (validate each generated DSL)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="2068" as="sourcePoint"/><mxPoint x="780" y="2068" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s7m6" value="ValidationResult" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="780" y="2092" as="sourcePoint"/><mxPoint x="950" y="2092" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- step 6: validation backtest -->
+    <mxCell id="s7m7" value="Step 6: POST /api/backtest/validate  (held-out last 20% of data)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="2118" as="sourcePoint"/><mxPoint x="610" y="2118" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s7m8" value="SimulationResult (validation set)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="610" y="2145" as="sourcePoint"/><mxPoint x="950" y="2145" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- step 7: promote alt block -->
+    <mxCell id="alt3" value="" style="rounded=0;fillColor=none;strokeColor=#666666;strokeWidth=1;dashed=1;" vertex="1" parent="1">
+      <mxGeometry x="50" y="2165" width="1920" height="90" as="geometry"/>
+    </mxCell>
+    <mxCell id="alt3lbl" value="alt" style="rounded=1;arcSize=50;fillColor=#333333;strokeColor=#888888;fontColor=#ffffff;fontSize=10;fontStyle=1;" vertex="1" parent="1">
+      <mxGeometry x="50" y="2165" width="34" height="18" as="geometry"/>
+    </mxCell>
+    <mxCell id="alt3ok" value="Step 7 [sharpe &gt; 0.3 AND trades ≥ 20]  PROMOTE → POST /api/strategies (source=LLM)" style="text;fontSize=10;fontColor=#88ff88;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="68" y="2185" width="640" height="16" as="geometry"/>
+    </mxCell>
+    <mxCell id="s7m9" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#9673a6;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="2198" as="sourcePoint"/><mxPoint x="780" y="2198" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <!-- ★ NEW: cache bust after promote -->
+    <mxCell id="s7m9b" value="★ Invalidate Redis strategy cache → LiveSignalConsumer picks up new LLM strategy on next poll" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#cc4444;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="2220" as="sourcePoint"/><mxPoint x="1630" y="2220" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="alt3div" value="" style="line;strokeColor=#555555;" vertex="1" parent="1">
+      <mxGeometry x="50" y="2248" width="1920" height="8" as="geometry"/>
+    </mxCell>
+    <mxCell id="alt3fail" value="Step 7 [sharpe ≤ 0.3 OR trades &lt; 20]  REJECT — log and discard" style="text;fontSize=10;fontColor=#ff8888;fillColor=none;strokeColor=none;" vertex="1" parent="1">
+      <mxGeometry x="68" y="2258" width="480" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- step 8: prune -->
+    <mxCell id="s7m10" value="Step 8: PRUNE  PATCH /api/strategies/{id}  isActive=false  [sharpe &lt; -0.5 AND trades ≥ 30]" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="2285" as="sourcePoint"/><mxPoint x="780" y="2285" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <!-- ★ NEW: remove pruned strategies from Redis cache -->
+    <mxCell id="s7m10b" value="★ DEL strategy from Redis cache → pruned strategy stops receiving live signals immediately" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#cc4444;strokeWidth=1.5;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="2308" as="sourcePoint"/><mxPoint x="1630" y="2308" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- audit log -->
+    <mxCell id="s7arc2" value="" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=1.5;endArrow=open;endFill=0;exitX=1;exitY=0.5;exitFixed=0;entryX=1;entryY=0.5;entryFixed=0;curved=1;" edge="1" source="p06t" target="p06t" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1030" y="2330" as="sourcePoint"/><mxPoint x="1030" y="2352" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s7n2" value="Write AuditLog: logs/learning-loop-{date}.json · update LoopHealthMonitor (pause if quality &lt; 0.2 for 3 runs)" style="text;fontSize=10;fontColor=#aaaaff;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="1045" y="2328" width="640" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SECTION 8 — FRONTEND QUERIES + REAL-TIME LEADERBOARD
+    ═══════════════════════════════════════════════════════════ -->
+    <mxCell id="s8hdr" value="" style="rounded=0;fillColor=#111111;strokeColor=#555555;opacity=70;" vertex="1" parent="1">
+      <mxGeometry x="30" y="2375" width="1940" height="26" as="geometry"/>
+    </mxCell>
+    <mxCell id="s8lbl" value="SECTION 8 — FRONTEND QUERIES  (AI panel · leaderboard · live signal feed)" style="text;fontSize=11;fontStyle=1;fontColor=#aaaaaa;fillColor=none;strokeColor=none;align=left;" vertex="1" parent="1">
+      <mxGeometry x="42" y="2379" width="600" height="16" as="geometry"/>
+    </mxCell>
+
+    <!-- ★ NEW: frontend polls leaderboard from Redis (not DB) -->
+    <mxCell id="s8m1" value="★ GET /api/sim/leaderboard → Redis ZREVRANGE sim:leaderboard 0 9 (real-time Sharpe ranking)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#cc4444;strokeWidth=2;fontSize=10;endArrow=open;endFill=0;dashed=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="1630" y="2415" as="sourcePoint"/><mxPoint x="100" y="2415" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <mxCell id="s8m2" value="POST /api/ai/generate  { symbol, interval, objective }" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="100" y="2445" as="sourcePoint"/><mxPoint x="270" y="2445" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s8m3" value="proxy → ai-service POST /api/ai/generate" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="270" y="2472" as="sourcePoint"/><mxPoint x="950" y="2472" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s8m4" value="GenerationResult { dsl, reasoning, confidence, retrievedMemoryCount }" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="2498" as="sourcePoint"/><mxPoint x="100" y="2498" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <mxCell id="s8m5" value="GET /api/strategies/leaderboard  (top 10 by Sharpe, isStatisticallyValid=true)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="100" y="2525" as="sourcePoint"/><mxPoint x="270" y="2525" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s8m6" value="proxy → strategy-service" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="270" y="2550" as="sourcePoint"/><mxPoint x="780" y="2550" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s8m7" value="LeaderboardEntry[]" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="780" y="2575" as="sourcePoint"/><mxPoint x="100" y="2575" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <mxCell id="s8m8" value="GET /api/ai/loop/health  (every 60s poll)" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;fontSize=10;endArrow=block;endFill=1;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="100" y="2602" as="sourcePoint"/><mxPoint x="270" y="2602" as="targetPoint"/></mxGeometry>
+    </mxCell>
+    <mxCell id="s8m9" value="LoopHealth { memoryQuality, successRate, memoryCount, isPaused } + last 7 loop summaries" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=1.5;dashed=1;fontSize=10;endArrow=open;endFill=0;" edge="1" parent="1">
+      <mxGeometry relative="1" as="geometry"><mxPoint x="950" y="2632" as="sourcePoint"/><mxPoint x="100" y="2632" as="targetPoint"/></mxGeometry>
+    </mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════
+         PARTICIPANT FOOTER BOXES — BOTTOM
+    ═══════════════════════════════════════════════════════════ -->
+    <mxCell id="p01b" value="React Frontend" style="rounded=1;arcSize=8;fillColor=#1a1a2e;strokeColor=#aaaaaa;fontColor=#ffffff;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="30" y="2665" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p02b" value="trading-assistant&#xa;:8080" style="rounded=1;arcSize=8;fillColor=#1a1a2e;strokeColor=#aaaaaa;fontColor=#ffffff;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="200" y="2665" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p03b" value="market-data-service" style="rounded=1;arcSize=8;fillColor=#2d1a0e;strokeColor=#d6b656;fontColor=#ffd580;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="370" y="2665" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p04b" value="trading-engine&#xa;:8081" style="rounded=1;arcSize=8;fillColor=#1a1a2e;strokeColor=#aaaaaa;fontColor=#ffffff;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="540" y="2665" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p05b" value="strategy-service&#xa;:8082" style="rounded=1;arcSize=8;fillColor=#1a1a2e;strokeColor=#aaaaaa;fontColor=#ffffff;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="710" y="2665" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p06b" value="ai-service&#xa;:8083" style="rounded=1;arcSize=8;fillColor=#1a1a2e;strokeColor=#aaaaaa;fontColor=#ffffff;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="880" y="2665" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p07b" value="Kafka&#xa;market.kline.*" style="rounded=1;arcSize=8;fillColor=#2d2200;strokeColor=#d6b656;fontColor=#ffd580;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="1050" y="2665" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p08b" value="Kafka&#xa;trading.signals" style="rounded=1;arcSize=8;fillColor=#1a2200;strokeColor=#88cc44;fontColor=#aaff55;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="1220" y="2665" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p09b" value="PostgreSQL&#xa;+ pgvector" style="rounded=1;arcSize=8;fillColor=#0e2d0e;strokeColor=#82b366;fontColor=#88ff88;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="1390" y="2665" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p10b" value="Redis" style="rounded=1;arcSize=8;fillColor=#2d0e0e;strokeColor=#cc4444;fontColor=#ff9999;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="1560" y="2665" width="140" height="54" as="geometry"/>
+    </mxCell>
+    <mxCell id="p11b" value="Anthropic API" style="rounded=1;arcSize=8;fillColor=#1e0a2e;strokeColor=#9673a6;fontColor=#cc99ff;fontSize=11;fontStyle=1;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="1730" y="2665" width="140" height="54" as="geometry"/>
+    </mxCell>
+
+  </root>
+</mxGraphModel>
