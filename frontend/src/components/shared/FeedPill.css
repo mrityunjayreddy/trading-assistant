@@ -1,0 +1,29 @@
+.feed-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.feed-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--warning);
+  box-shadow: 0 0 0 5px rgba(247, 199, 95, 0.15);
+}
+
+.feed-dot.live {
+  background: var(--positive);
+  box-shadow: 0 0 0 5px rgba(41, 211, 145, 0.15);
+}
+
+.feed-dot.error {
+  background: var(--negative);
+  box-shadow: 0 0 0 5px rgba(255, 107, 122, 0.15);
+}

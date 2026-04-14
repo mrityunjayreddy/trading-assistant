@@ -1,0 +1,428 @@
+/* ── page layout ─────────────────────────────────────────────────── */
+.lib-page {
+  display: flex;
+  gap: 0;
+  min-height: calc(100vh - 160px);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+
+/* ── left panel ──────────────────────────────────────────────────── */
+.lib-left {
+  width: 35%;
+  min-width: 260px;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--panel-border);
+}
+
+.lib-left__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 20px 20px 14px;
+}
+
+.lib-panel-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+/* ── tabs ─────────────────────────────────────────────────────────── */
+.lib-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 0 14px 10px;
+  flex-wrap: wrap;
+}
+
+.lib-tab {
+  padding: 5px 10px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease;
+  white-space: nowrap;
+}
+
+.lib-tab:hover {
+  background: rgba(121, 212, 255, 0.07);
+  color: var(--text);
+}
+
+.lib-tab--active {
+  background: rgba(121, 212, 255, 0.14);
+  color: #79d4ff;
+}
+
+/* ── strategy list ───────────────────────────────────────────────── */
+.lib-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 10px 10px;
+}
+
+.lib-list__error,
+.lib-list__empty {
+  padding: 16px 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.lib-list__error {
+  color: var(--negative);
+}
+
+/* ── list item ───────────────────────────────────────────────────── */
+.lib-list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  padding: 12px 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 140ms ease;
+  margin-bottom: 2px;
+}
+
+.lib-list-item:hover {
+  background: rgba(121, 212, 255, 0.06);
+}
+
+.lib-list-item--active {
+  background: rgba(121, 212, 255, 0.12);
+}
+
+.lib-list-item__row1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.lib-list-item__name {
+  font-size: 0.87rem;
+  font-weight: 500;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lib-list-item__row2 {
+  display: flex;
+  gap: 14px;
+}
+
+.lib-list-item__stat {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 0.76rem;
+}
+
+.lib-list-item__stat-label {
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+}
+
+.lib-list-item__stat-value {
+  color: var(--text);
+  font-family: "IBM Plex Mono", monospace;
+}
+
+/* ── skeleton ─────────────────────────────────────────────────────── */
+.lib-skel {
+  display: inline-block;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(145, 201, 255, 0.07) 25%,
+    rgba(145, 201, 255, 0.13) 50%,
+    rgba(145, 201, 255, 0.07) 75%
+  );
+  background-size: 200% 100%;
+  animation: lib-shimmer 1.4s ease infinite;
+}
+
+@keyframes lib-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.lib-list-item--skeleton {
+  gap: 8px;
+  pointer-events: none;
+}
+
+/* ── right panel ─────────────────────────────────────────────────── */
+.lib-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 26px;
+  overflow-y: auto;
+}
+
+.lib-right--empty {
+  justify-content: center;
+  align-items: center;
+}
+
+.lib-right__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.lib-right__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* ── buttons ─────────────────────────────────────────────────────── */
+.lib-btn {
+  padding: 8px 18px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 140ms ease, background 140ms ease;
+  white-space: nowrap;
+}
+
+.lib-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lib-btn--primary {
+  background: rgba(121, 212, 255, 0.18);
+  border-color: rgba(121, 212, 255, 0.24);
+  color: #79d4ff;
+}
+
+.lib-btn--primary:hover:not(:disabled) {
+  background: rgba(121, 212, 255, 0.26);
+}
+
+.lib-btn--secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+}
+
+.lib-btn--secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.lib-add-btn {
+  padding: 7px 14px;
+  border: 1px solid rgba(121, 212, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(121, 212, 255, 0.1);
+  color: #79d4ff;
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 140ms ease;
+}
+
+.lib-add-btn:hover {
+  background: rgba(121, 212, 255, 0.18);
+}
+
+/* ── saved badge ─────────────────────────────────────────────────── */
+.lib-saved-badge {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(41, 211, 145, 0.14);
+  color: var(--positive);
+  font-size: 0.76rem;
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 0.04em;
+}
+
+/* ── metric cards ────────────────────────────────────────────────── */
+.lib-metrics-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.lib-metric {
+  flex: 1;
+  min-width: 110px;
+  padding: 14px 16px;
+  border: 1px solid rgba(145, 201, 255, 0.1);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.lib-metric__label {
+  font-size: 0.7rem;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lib-metric__value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.lib-pos { color: var(--positive); }
+.lib-neg { color: var(--negative); }
+
+/* ── editor ──────────────────────────────────────────────────────── */
+.lib-editor-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.lib-editor-wrap {
+  border: 1px solid rgba(145, 201, 255, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* ── banners ─────────────────────────────────────────────────────── */
+.lib-error-banner {
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(255, 107, 122, 0.28);
+  border-radius: 12px;
+  background: rgba(255, 107, 122, 0.08);
+  color: var(--negative);
+  font-size: 0.84rem;
+}
+
+.lib-error-list {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+}
+
+.lib-success-banner {
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(41, 211, 145, 0.24);
+  border-radius: 12px;
+  background: rgba(41, 211, 145, 0.08);
+  color: var(--positive);
+  font-size: 0.84rem;
+}
+
+/* ── source badges ───────────────────────────────────────────────── */
+.lib-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.lib-badge--builtin { background: rgba(148, 168, 188, 0.14); color: #94a8bc; }
+.lib-badge--user    { background: rgba(121, 212, 255, 0.14); color: #79d4ff; }
+.lib-badge--llm     { background: rgba(183, 125, 255, 0.14); color: #b77dff; }
+.lib-badge--evolved { background: rgba(41, 211, 195, 0.14);  color: #29d3c3; }
+
+/* ── empty state ─────────────────────────────────────────────────── */
+.lib-empty-state {
+  text-align: center;
+  color: var(--muted);
+}
+
+.lib-empty-state__icon {
+  display: block;
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.lib-empty-state__text {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+/* ── crash boundary ──────────────────────────────────────────────── */
+.lib-crash {
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.lib-crash__title {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--negative);
+}
+
+.lib-crash__msg {
+  margin: 0;
+  font-size: 0.8rem;
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--muted);
+}
+
+/* ── responsive ──────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .lib-page {
+    flex-direction: column;
+  }
+
+  .lib-left {
+    width: 100%;
+    max-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--panel-border);
+  }
+
+  .lib-list {
+    max-height: 280px;
+  }
+}

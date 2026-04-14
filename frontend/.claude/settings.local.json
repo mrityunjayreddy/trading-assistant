@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(grep -E \"tsconfig|\\\\.ts$\")",
+      "Bash(npm install:*)",
+      "Bash(xargs grep:*)",
+      "Bash(jar tf:*)",
+      "Bash(mvn dependency:unpack -Dartifact=org.ta4j:ta4j-core:0.22.3 -DoutputDirectory=/tmp/ta4j-classes -q)",
+      "Read(//tmp/**)",
+      "Bash(powershell -Command 'Add-Type -AssemblyName '\\\\''System.IO.Compression.FileSystem'\\\\''; [System.IO.Compression.ZipFile]::OpenRead\\('\\\\''C:/Users/MRITY/.m2/repository/org/ta4j/ta4j-core/0.22.3/ta4j-core-0.22.3.jar'\\\\''\\).Entries | Where-Object { $_.FullName -match '\\\\''Highest|Lowest|Previous|Transform|Combine|Arithmetic'\\\\'' } | Select-Object FullName')",
+      "Read(//d/production-grade-projects/crypto-trading-app/trading-engine/**)",
+      "Bash(mvn compile:*)",
+      "Bash(./mvnw compile:*)"
+    ]
+  }
+}

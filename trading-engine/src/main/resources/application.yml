@@ -1,0 +1,14 @@
+# ---------------------------------------------------------------------------
+# R2DBC — reactive PostgreSQL for backtest result persistence
+# Loaded alongside application.properties (no conflicts — different keys).
+# ---------------------------------------------------------------------------
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://${POSTGRES_HOST:localhost}:5432/trading
+    username: ${POSTGRES_USER:trading}
+    password: ${POSTGRES_PASSWORD:trading}
+    pool:
+      enabled: true
+      initial-size: 2
+      max-size: 5
+      max-idle-time: 30m

@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+:root {
+  color-scheme: dark;
+  --bg: #07111f;
+  --panel: rgba(5, 16, 29, 0.82);
+  --panel-border: rgba(145, 201, 255, 0.16);
+  --text: #ecf7ff;
+  --muted: #94a8bc;
+  --positive: #29d391;
+  --negative: #ff6b7a;
+  --warning: #f7c75f;
+  --line: #61dafb;
+  --volume: rgba(97, 218, 251, 0.3);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  font-family: "Space Grotesk", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(65, 147, 255, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(41, 211, 145, 0.14), transparent 24%),
+    linear-gradient(160deg, #02060c 0%, #07111f 48%, #0c1d31 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
+}
+
+#root {
+  width: 100%;
+}
+
+.app-shell {
+  width: min(1380px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.app-shell--analysis {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* TopNavigation inside analysis layout: flush, no card rounding, no bottom margin */
+.app-shell--analysis .top-navigation {
+  margin: 0;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding: 10px 20px;
+  flex-shrink: 0;
+}
+
+.muted {
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.positive {
+  color: var(--positive);
+}
+
+.negative {
+  color: var(--negative);
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    width: min(100% - 20px, 1380px);
+    padding-top: 20px;
+  }
+}

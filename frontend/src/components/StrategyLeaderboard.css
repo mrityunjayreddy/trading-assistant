@@ -1,0 +1,230 @@
+.sl-wrap {
+  margin-top: 22px;
+  padding: 22px 24px;
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+}
+
+.sl-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.sl-title {
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.sl-subtitle {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 0.04em;
+}
+
+/* ── table ─────────────────────────────────────────────────────── */
+.sl-table-scroll {
+  overflow-x: auto;
+}
+
+.sl-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.sl-th {
+  padding: 8px 12px;
+  text-align: left;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(145, 201, 255, 0.1);
+  white-space: nowrap;
+}
+
+.sl-th--num,
+.sl-cell--num {
+  text-align: right;
+}
+
+.sl-th--rank,
+.sl-cell--rank {
+  width: 36px;
+  text-align: center;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+}
+
+.sl-th--status,
+.sl-cell--status {
+  width: 56px;
+  text-align: center;
+}
+
+.sl-th--name {
+  min-width: 160px;
+}
+
+.sl-cell {
+  padding: 11px 12px;
+  color: var(--text);
+  border-bottom: 1px solid rgba(145, 201, 255, 0.06);
+  white-space: nowrap;
+}
+
+.sl-cell--num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.83rem;
+}
+
+.sl-row--data {
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+
+.sl-row--data:hover,
+.sl-row--data:focus-within {
+  background: rgba(121, 212, 255, 0.05);
+  outline: none;
+}
+
+.sl-row--data:focus-visible {
+  outline: 2px solid rgba(121, 212, 255, 0.4);
+  outline-offset: -2px;
+}
+
+/* ── pnl colours ───────────────────────────────────────────────── */
+.sl-pnl--pos { color: var(--positive); }
+.sl-pnl--neg { color: var(--negative); }
+
+/* ── source badges ─────────────────────────────────────────────── */
+.sl-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-family: "IBM Plex Mono", monospace;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+.badge--builtin {
+  background: rgba(148, 168, 188, 0.14);
+  color: #94a8bc;
+}
+
+.badge--user {
+  background: rgba(121, 212, 255, 0.14);
+  color: #79d4ff;
+}
+
+.badge--llm {
+  background: rgba(183, 125, 255, 0.14);
+  color: #b77dff;
+}
+
+.badge--evolved {
+  background: rgba(41, 211, 195, 0.14);
+  color: #29d3c3;
+}
+
+/* ── status dot ────────────────────────────────────────────────── */
+.sl-status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.sl-status-dot--active {
+  background: var(--positive);
+  box-shadow: 0 0 6px var(--positive);
+}
+
+.sl-status-dot--eliminated {
+  background: var(--negative);
+}
+
+/* ── skeleton ──────────────────────────────────────────────────── */
+.sl-skel {
+  display: inline-block;
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    rgba(145, 201, 255, 0.07) 25%,
+    rgba(145, 201, 255, 0.13) 50%,
+    rgba(145, 201, 255, 0.07) 75%
+  );
+  background-size: 200% 100%;
+  animation: sl-shimmer 1.4s ease infinite;
+}
+
+@keyframes sl-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.sl-row--skeleton .sl-cell {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+/* ── error state ───────────────────────────────────────────────── */
+.sl-error {
+  margin-top: 22px;
+  padding: 20px 24px;
+  border: 1px solid rgba(255, 107, 122, 0.2);
+  border-radius: 20px;
+  background: rgba(255, 107, 122, 0.06);
+  color: var(--negative);
+  font-size: 0.86rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sl-error__icon {
+  font-size: 1rem;
+}
+
+/* ── error-boundary shared style ───────────────────────────────── */
+.error-boundary {
+  padding: 32px 24px;
+  border: 1px solid rgba(255, 107, 122, 0.18);
+  border-radius: 20px;
+  background: rgba(255, 107, 122, 0.05);
+  text-align: center;
+  color: var(--muted);
+}
+
+.error-boundary__icon {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.error-boundary__title {
+  margin: 0 0 6px;
+  font-size: 0.92rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.error-boundary__message {
+  margin: 0;
+  font-size: 0.8rem;
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--negative);
+}

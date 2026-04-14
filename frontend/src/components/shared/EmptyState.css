@@ -1,0 +1,10 @@
+.empty-state {
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  color: var(--muted);
+  text-align: center;
+  padding: 24px;
+}

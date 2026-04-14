@@ -1,0 +1,130 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.table th,
+.table td {
+  padding: 12px 0;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.table th {
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.table td {
+  font-size: 0.95rem;
+}
+
+.price-cell {
+  font-weight: 700;
+}
+
+.candles-table-wrap {
+  max-height: 560px;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0 18px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(121, 212, 255, 0.55) rgba(255, 255, 255, 0.06);
+}
+
+.candles-table {
+  min-width: 700px;
+}
+
+.candles-table-wrap::-webkit-scrollbar {
+  width: 10px;
+}
+
+.candles-table-wrap::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+}
+
+.candles-table-wrap::-webkit-scrollbar-thumb {
+  background: rgba(121, 212, 255, 0.55);
+  border-radius: 999px;
+}
+
+.candles-table th,
+.candles-table td {
+  padding: 16px 0;
+}
+
+.candles-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: rgba(8, 21, 36, 0.96);
+  backdrop-filter: blur(10px);
+}
+
+.candles-table tbody tr {
+  transition: background 160ms ease;
+}
+
+.candles-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.time-cell {
+  min-width: 150px;
+}
+
+.time-primary,
+.time-secondary {
+  display: block;
+}
+
+.time-primary {
+  font-weight: 600;
+}
+
+.time-secondary {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.candle-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 82px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(41, 211, 145, 0.12);
+  color: var(--positive);
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.candle-status.building {
+  background: rgba(247, 199, 95, 0.12);
+  color: var(--warning);
+}
+
+@media (max-width: 720px) {
+  .table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .candles-table-wrap {
+    padding: 0 14px;
+  }
+}

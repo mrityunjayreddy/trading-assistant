@@ -1,0 +1,258 @@
+.simulation-chart {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(120, 210, 255, 0.08), transparent 34%),
+    linear-gradient(180deg, rgba(17, 27, 42, 0.92), rgba(9, 14, 23, 0.95));
+}
+
+.simulation-chart__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: start;
+}
+
+.simulation-chart__eyebrow,
+.simulation-chart__trade-pill,
+.simulation-chart__stat span,
+.simulation-chart__table th {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.simulation-chart__eyebrow {
+  color: #78d2ff;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.simulation-chart__title {
+  margin: 8px 0 6px;
+  font-size: 1.08rem;
+}
+
+.simulation-chart__subtitle {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.simulation-chart__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.simulation-chart__stat {
+  display: grid;
+  gap: 4px;
+  min-width: 120px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.simulation-chart__stat span {
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.simulation-chart__surface-shell {
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 22px;
+  background: rgba(6, 12, 20, 0.55);
+}
+
+.simulation-chart__surface {
+  width: 100%;
+  min-height: 420px;
+}
+
+.simulation-chart__surface canvas {
+  border-radius: 14px;
+}
+
+.simulation-chart__axis-hint {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.simulation-chart__table-shell,
+.simulation-chart__empty-ledger {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.simulation-chart__table-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px 0;
+}
+
+.simulation-chart__table-summary,
+.simulation-chart__pagination-readout {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.simulation-chart__pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.simulation-chart__page-size {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.simulation-chart__page-size-field {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-width: 78px;
+}
+
+.simulation-chart__page-size-select {
+  width: 100%;
+  padding: 9px 34px 9px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(7, 17, 31, 0.92);
+  color: var(--text);
+  font: inherit;
+  line-height: 1.1;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  transition: border-color 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.simulation-chart__page-size-select:hover,
+.simulation-chart__pagination-button:hover:not(:disabled) {
+  border-color: rgba(120, 210, 255, 0.28);
+}
+
+.simulation-chart__page-size-select:focus,
+.simulation-chart__pagination-button:focus {
+  outline: none;
+  border-color: rgba(120, 210, 255, 0.52);
+  box-shadow: 0 0 0 3px rgba(120, 210, 255, 0.14);
+}
+
+.simulation-chart__page-size-caret {
+  position: absolute;
+  right: 12px;
+  color: #78d2ff;
+  font-size: 0.68rem;
+  pointer-events: none;
+}
+
+.simulation-chart__pagination-button {
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(7, 17, 31, 0.92);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+
+.simulation-chart__pagination-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.simulation-chart__table-scroll {
+  overflow-x: auto;
+}
+
+.simulation-chart__table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.simulation-chart__table th,
+.simulation-chart__table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.simulation-chart__table th {
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.simulation-chart__table tbody tr:hover {
+  background: rgba(120, 210, 255, 0.04);
+}
+
+.simulation-chart__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.simulation-chart__trade-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.simulation-chart__trade-pill--buy {
+  background: rgba(41, 211, 145, 0.14);
+  color: #8ff3c6;
+}
+
+.simulation-chart__trade-pill--sell {
+  background: rgba(255, 107, 122, 0.14);
+  color: #ffb0b9;
+}
+
+.simulation-chart__empty-ledger {
+  padding: 14px 16px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .simulation-chart__meta {
+    flex-direction: column;
+  }
+
+  .simulation-chart__table-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 14px;
+  }
+}
